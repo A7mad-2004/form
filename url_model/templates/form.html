@@ -1,0 +1,20 @@
+{% extends 'layout/layout.html'%}
+
+{% block title %}
+    form
+{% endblock  %}
+{% block content %}
+ <form method="post" action="{% url 'form_submit' %} " enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- {{ form.as_p }}     -->
+    <label for="name" >Name:</label> <br>
+    <input name="name" type="text"> <br>
+    <label for="age" >Age:</label> <br>
+    <input name="age" type="number"> <br>
+    <label for="address" >Address:</label> <br>
+    <input name="address" type="text"> <br>
+    <label for="image" >Image:</label> <br> 
+     <input name="image" type="file"> <br>
+    <button type="submit">save</button>
+ </form>
+{% endblock  %}

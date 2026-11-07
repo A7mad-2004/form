@@ -1,0 +1,44 @@
+{% extends 'layout/layout.html'%}
+
+{% block title %}
+home
+{% endblock %}
+
+{% block content %}
+<div>
+    home page
+    <div>
+        <table border="1">
+            <tr>
+                <th>الاسم</th>
+                <th>العمر</th>
+                <th>العنوان</th>
+                <th>الصورة</th>
+            </tr>
+
+            <!-- بداية الحلقة -->
+            {% for per in pers %}
+            <tr>
+                <td>{{ per.name }}</td>
+                <td>{{ per.age }}</td>
+                <td>{{ per.address }}</td>
+
+                <td>
+                    {% if per.image %}
+                    <img src="{{ per.image.url }}" width="100">
+                    {% else %}
+                    لا توجد صورة
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">لا يوجد أشخاص مسجلين حالياً.</td>
+            </tr>
+            {% endfor %}
+            <!-- نهاية الحلقة -->
+
+        </table>
+    </div>
+</div>
+{% endblock %}
